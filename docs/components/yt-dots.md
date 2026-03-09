@@ -6,7 +6,7 @@
 | ------------- | ---------------------------- | -------------- | ------------------------------ |
 | `total`       | `number`                     | `1`            | 指示点总数                     |
 | `activeIndex` | `number`                     | `0`            | 当前激活的指示点索引           |
-| `theme`       | `ThemeColor \| 'none'`       | `'none'`       | 主题颜色/guide/theme-system.md |
+| `theme`       | `ThemeColor \| 'none'`       | `'none'`       | [主题颜色](/guide/theme-system.md) |
 | `size`        | `number`                     | `24`           | 指示点整体缩放比例             |
 | `direction`   | `'horizontal' \| 'vertical'` | `'horizontal'` | 指示点排列方向                 |
 

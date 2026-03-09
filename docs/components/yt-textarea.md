@@ -5,7 +5,7 @@
 | 属性名           | 类型                   | 默认值         | 说明                           |
 | ---------------- | ---------------------- | -------------- | ------------------------------ |
 | `name`           | `string`               | `''`           | 表单字段名                     |
-| `theme`          | `ThemeColor \| 'none'` | `'none'`       | 主题颜色/guide/theme-system.md |
+| `theme`          | `ThemeColor \| 'none'` | `'none'`       | [主题颜色](/guide/theme-system.md) |
 | `width`          | `number \| string`     | `'100%'`       | 输入框宽度                     |
 | `height`         | `number \| string`     | `30`           | 输入框高度                     |
 | `padding`        | `number \| string`     | `'0 4px'`      | 内边距                         |

@@ -4,7 +4,7 @@
 
 | 属性名          | 类型         | 默认值      | 说明                           |
 | --------------- | ------------ | ----------- | ------------------------------ |
-| `theme`         | `ThemeColor` | `'classic'` | 主题颜色/guide/theme-system.md |
+| `theme`         | `ThemeColor` | `'classic'` | [主题颜色](/guide/theme-system.md) |
 | `count`         | `number`     | `0`         | 徽标数字                       |
 | `overflowCount` | `number`     | `99`        | 徽标封顶数字                   |
 | `dot`           | `boolean`    | `false`     | 是否显示小红点                 |

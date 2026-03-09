@@ -4,7 +4,7 @@
 
 | 属性名              | 类型               | 默认值        | 说明                           |
 | ------------------- | ------------------ | ------------- | ------------------------------ |
-| `theme`             | `ThemeColor`       | `'classic'`   | 主题颜色/guide/theme-system.md |
+| `theme`             | `ThemeColor`       | `'classic'`   | [主题颜色](/guide/theme-system.md) |
 | `modelValue`        | `number`           | `0`           | 当前激活索引 (v-model)         |
 | `centerIcon`        | `string`           | `''`          | 中间按钮图标                   |
 | `centerBgColor`     | `string`           | `'#ffffff20'` | 中间按钮背景色                 |

@@ -4,7 +4,7 @@
 
 | 属性名         | 类型               | 默认值      | 说明                           |
 | -------------- | ------------------ | ----------- | ------------------------------ |
-| `theme`        | `ThemeColor`       | `'classic'` | 主题颜色/guide/theme-system.md |
+| `theme`        | `ThemeColor`       | `'classic'` | [主题颜色](/guide/theme-system.md) |
 | `type`         | `ColorType`        | `'primary'` | 标签类型                       |
 | `size`         | `SizeType`         | `'medium'`  | 标签尺寸                       |
 | `plain`        | `boolean`          | `false`     | 是否朴素样式                   |

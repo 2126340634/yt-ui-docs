@@ -4,7 +4,7 @@
 
 | 属性名       | 类型                   | 默认值   | 说明                           |
 | ------------ | ---------------------- | -------- | ------------------------------ |
-| `theme`      | `ThemeColor \| 'none'` | `'none'` | 主题颜色/guide/theme-system.md |
+| `theme`      | `ThemeColor \| 'none'` | `'none'` | [主题颜色](/guide/theme-system.md) |
 | `width`      | `number \| string`     | `'100%'` | 通告栏宽度                     |
 | `height`     | `number \| string`     | `45`     | 通告栏高度                     |
 | `textSize`   | `number`               | `12`     | 文字大小                       |

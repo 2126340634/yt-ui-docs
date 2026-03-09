@@ -4,7 +4,7 @@
 
 | 属性名      | 类型                   | 默认值        | 说明                           |
 | ----------- | ---------------------- | ------------- | ------------------------------ |
-| `theme`     | `ThemeColor \| 'none'` | `'classic'`   | 主题颜色/guide/theme-system.md |
+| `theme`     | `ThemeColor \| 'none'` | `'classic'`   | [主题颜色](/guide/theme-system.md) |
 | `visible`   | `boolean`              | `true`        | 是否显示                       |
 | `textColor` | `string`               | `'#999'`      | 文本颜色                       |
 | `zIndex`    | `number`               | `1000`        | 层级                           |

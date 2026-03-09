@@ -4,7 +4,7 @@
 
 | 属性名       | 类型                | 默认值      | 说明                           |
 | ------------ | ------------------- | ----------- | ------------------------------ |
-| `theme`      | `ThemeColor`        | `'classic'` | 主题颜色/guide/theme-system.md |
+| `theme`      | `ThemeColor`        | `'classic'` | [主题颜色](/guide/theme-system.md) |
 | `size`       | `SizeType`          | `'medium'`  | 按钮尺寸                       |
 | `horizontal` | `'right' \| 'left'` | `'right'`   | 水平位置                       |
 | `vertical`   | `'bottom' \| 'top'` | `'bottom'`  | 垂直位置                       |

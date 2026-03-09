@@ -11,11 +11,11 @@
 ## 安装
 
 ```bash
-npm install yt-ui
+npm install @rao2126340634/yt-ui
 # 或
-pnpm add yt-ui
+pnpm add @rao2126340634/yt-ui
 # 或
-yarn add yt-ui
+yarn add @rao2126340634/yt-ui
 ```
 
 ## 配置

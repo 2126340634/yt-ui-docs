@@ -4,14 +4,14 @@
 
 | 属性名       | 类型               | 默认值             | 说明                           |
 | ------------ | ------------------ | ------------------ | ------------------------------ |
-| `theme`      | `ThemeColor`       | `'classic'`        | 主题颜色/guide/theme-system.md |
+| `theme`      | `ThemeColor`       | `'classic'`        | [主题颜色](/guide/theme-system.md) |
 | `width`      | `number \| string` | `'100vw'`          | 课表宽度                       |
 | `height`     | `number \| string` | `'100vh'`          | 课表高度                       |
 | `animation`  | `boolean`          | `true`             | 是否开启动画                   |
 | `duration`   | `number`           | `300`              | 动画时长                       |
 | `rows`       | `number`           | `6`                | 行数(课节数)                   |
 | `weeks`      | `number`           | `20`               | 周数                           |
-| `activeWeek` | `number`           | `0`                | 默认选中周索引(0 开始)         |
+| `activeWeek` | `number`           | `0`                | 当前周索引(0 开始)         |
 | `timeList`   | `TimeList`         | `[]`               | 时间列表                       |
 | `colorList`  | `string[]`         | `defaultColorList` | 课程颜色列表                   |
 | `data`       | `ScheduleData`     | `{...}`            | 课表数据                       |

@@ -5,7 +5,7 @@
 | 属性名             | 类型                   | 默认值         | 说明                           |
 | ------------------ | ---------------------- | -------------- | ------------------------------ |
 | `url`              | `string`               | `''`           | 头像图片地址                   |
-| `theme`            | `ThemeColor \| 'none'` | `'none'`       | 主题颜色/guide/theme-system.md |
+| `theme`            | `ThemeColor \| 'none'` | `'none'`       | [主题颜色](/guide/theme-system.md) |
 | `circle`           | `boolean`              | `true`         | 是否为圆形头像                 |
 | `size`             | `number`               | `60`           | 头像尺寸（单位：px）           |
 | `fit`              | `ImageMode`            | `'aspectFill'` | 图片裁剪模式                   |

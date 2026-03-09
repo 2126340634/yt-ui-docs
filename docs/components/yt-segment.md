@@ -4,7 +4,7 @@
 
 | 属性名       | 类型         | 默认值      | 说明                           |
 | ------------ | ------------ | ----------- | ------------------------------ |
-| `theme`      | `ThemeColor` | `'classic'` | 主题颜色/guide/theme-system.md |
+| `theme`      | `ThemeColor` | `'classic'` | [主题颜色](/guide/theme-system.md) |
 | `size`       | `SizeType`   | `'medium'`  | 尺寸大小                       |
 | `list`       | `string[]`   | `[]`        | 分段选项列表                   |
 | `modelValue` | `number`     | `0`         | 当前选中索引 (v-model)         |

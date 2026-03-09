@@ -4,7 +4,7 @@
 
 | 属性名              | 类型                         | 默认值         | 说明                           |
 | ------------------- | ---------------------------- | -------------- | ------------------------------ |
-| `theme`             | `ThemeColor \| 'none'`       | `'none'`       | 主题颜色/guide/theme-system.md |
+| `theme`             | `ThemeColor \| 'none'`       | `'none'`       | [主题颜色](/guide/theme-system.md) |
 | `disabled`          | `boolean`                    | `false`        | 是否禁用                       |
 | `showBgColor`       | `boolean`                    | `false`        | 是否显示背景色                 |
 | `list`              | `any[]`                      | `[]`           | 轮播数据列表                   |

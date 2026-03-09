@@ -4,7 +4,7 @@
 
 | 属性名         | 类型               | 默认值                            | 说明                           |
 | -------------- | ------------------ | --------------------------------- | ------------------------------ |
-| `theme`        | `ThemeColor`       | `'classic'`                       | 主题颜色/guide/theme-system.md |
+| `theme`        | `ThemeColor`       | `'classic'`                       | [主题颜色](/guide/theme-system.md) |
 | `width`        | `number \| string` | `'100%'`                          | 卡片宽度                       |
 | `height`       | `number \| string` | `200`                             | 卡片高度                       |
 | `borderRadius` | `number \| string` | `10`                              | 圆角大小                       |

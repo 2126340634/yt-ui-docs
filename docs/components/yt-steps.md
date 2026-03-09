@@ -4,7 +4,7 @@
 
 | 属性名        | 类型                         | 默认值         | 说明                           |
 | ------------- | ---------------------------- | -------------- | ------------------------------ |
-| `theme`       | `ThemeColor`                 | `'classic'`    | 主题颜色/guide/theme-system.md |
+| `theme`       | `ThemeColor`                 | `'classic'`    | [主题颜色](/guide/theme-system.md) |
 | `activeIndex` | `number`                     | `0`            | 当前激活步骤索引               |
 | `list`        | `StepItem[]`                 | `[]`           | 步骤列表                       |
 | `gap`         | `number`                     | `8`            | 步骤间距                       |

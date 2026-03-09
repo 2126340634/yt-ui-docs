@@ -71,35 +71,6 @@
 </yt-collapse>
 ```
 
-### 动态标题
-
-```vue
-<script setup>
-  import { ref } from 'vue'
-
-  const panels = ref(['动态面板1', '动态面板2'])
-
-  function addPanel() {
-    panels.value.push(`新增面板${panels.value.length + 1}`)
-  }
-</script>
-
-<template>
-  <yt-collapse
-    :titleList="panels"
-    @change="handleCollapseChange"
-  >
-    <template
-      v-for="(panel, index) in panels"
-      v-slot:[`collapse-item-${index}`]
-    >
-      <view>{{ panel }}的内容</view>
-    </template>
-  </yt-collapse>
-  <button @click="addPanel">添加面板</button>
-</template>
-```
-
 ### 复杂内容
 
 ```vue

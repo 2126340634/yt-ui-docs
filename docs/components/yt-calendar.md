@@ -6,7 +6,7 @@
 | -------------- | ---------------------- | -------- | ------------------------------ |
 | `monthData`    | `MonthData[]`          | `[]`     | 月份数据                       |
 | `loading`      | `boolean`              | `false`  | 是否加载中                     |
-| `theme`        | `ThemeColor \| 'none'` | `'none'` | 主题颜色/guide/theme-system.md |
+| `theme`        | `ThemeColor \| 'none'` | `'none'` | [主题颜色](/guide/theme-system.md) |
 | `width`        | `number \| string`     | `'100%'` | 日历宽度                       |
 | `height`       | `number \| string`     | `'100%'` | 日历高度                       |
 | `gap`          | `number \| string`     | `6`      | 日期项间距                     |

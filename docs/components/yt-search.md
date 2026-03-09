@@ -4,7 +4,7 @@
 
 | 属性名        | 类型                   | 默认值             | 说明                           |
 | ------------- | ---------------------- | ------------------ | ------------------------------ |
-| `theme`       | `ThemeColor \| 'none'` | `'none'`           | 主题颜色/guide/theme-system.md |
+| `theme`       | `ThemeColor \| 'none'` | `'none'`           | [主题颜色](/guide/theme-system.md) |
 | `modelValue`  | `string`               | `''`               | 绑定值 (v-model)               |
 | `value`       | `string`               | `''`               | 搜索值                         |
 | `placeholder` | `string`               | `'请输入搜索内容'` | 占位文本                       |

@@ -58,15 +58,7 @@ pnpm generate-llms    # 生成 → LLM-WIKI/llms.txt, llms-full.txt, components/
 
 ```bash
 # 1. 一键构建，所有产物输出到 deploy/
-npm run build
-
-# 2. 上传文档站（文件名可能变化，先清空再上传）
-ssh root@server "rm -rf /www/server/nginx/html/yt-ui/docs/*"
-scp -r deploy/docs/* root@server:/www/server/nginx/html/yt-ui/docs/
-
-# 3. 上传 MCP Server（文件名不变，直接覆盖）
-scp -r deploy/mcp-server/* root@server:/www/server/nginx/html/yt-ui/mcp-server/
-# 如依赖有变动，服务器上执行：cd /www/server/nginx/html/yt-ui/mcp-server && npm install --omit=dev
+pnpm run build
 ```
 
 构建完成后 `deploy/` 目录结构：
@@ -81,25 +73,34 @@ deploy/
         ├── index.js
         └── components.json    (MCP 自动热加载)
 ```
+上传
+```bash
+# 2. 上传文档站（文件名可能变化，先清空再上传）
+ssh root@server "rm -rf 组件库存放位置/docs/*"
+scp -r deploy/docs/* root@server:组件库存放位置/docs/
 
+# 3. 上传 MCP Server（文件名不变，直接覆盖）
+scp -r deploy/mcp-server/* root@server:组件库存放位置/mcp-server/
+# 如依赖有变动，服务器上执行：cd 组件库存放位置/mcp-server && npm install --omit=dev
+```
 ### 方式二：分步执行
 
 ```bash
 # 1. 构建文档站
-npm run docs:build
+pnpm run docs:build
 
 # 2. 上传文档站到服务器（先清空再上传）
-ssh root@server "rm -rf /www/server/nginx/html/yt-ui/docs/*"
-scp -r docs/.vuepress/dist/* root@server:/www/server/nginx/html/yt-ui/docs/
+ssh root@server "rm -rf 组件库存放位置/docs/*"
+scp -r docs/.vuepress/dist/* root@server:组件库存放位置/docs/
 
 # 3. 生成 LLM 文件 + 组件 .md 文件
-npm run sync
+pnpm run sync
 
 # 4. 上传 LLM 文件和组件 .md 文件
-scp -r LLM-WIKI/* root@server:/www/server/nginx/html/yt-ui/docs/
+scp -r LLM-WIKI/* root@server:组件库存放位置/docs/
 
 # 5. 上传 components.json（MCP 自动热加载）
-scp scripts/output/components.json root@server:/www/server/nginx/html/yt-ui/mcp-server/dist/components.json
+scp scripts/output/components.json root@server:组件库存放位置/mcp-server/dist/components.json
 ```
 
 MCP 服务部署详见 [mcp-server/README.md](mcp-server/README.md)。

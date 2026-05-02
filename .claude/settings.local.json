@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(node scripts/extract-components.js)",
+      "Bash(node -e ' *)",
+      "Bash(node scripts/test-regex.js)",
+      "Bash(node scripts/generate-llms.js)",
+      "WebSearch",
+      "Bash(npm run *)",
+      "Bash(timeout 3 node dist/index.js)",
+      "Bash(timeout 5 node dist/index.js)",
+      "Bash(timeout 10 node dist/index.js)",
+      "Bash(pkill -f \"node dist/index.js --transport http\")",
+      "Bash(node dist/index.js --transport http --port 3101)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"transport http\")",
+      "Bash(pkill -f \"node -e\")",
+      "Bash(node dist/index.js --transport http --port 3103)",
+      "Bash(pkill -f \"test-http\")",
+      "Bash(node test-http-server.js)",
+      "Bash(node test-http-client.js)",
+      "Bash(pkill -f \"test-http-server\")",
+      "Bash(pkill -f \"node.*3105\")",
+      "Bash(node dist/index.js --transport http --port 3106)",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('scripts/output/components.json','utf8'\\)\\);d.slice\\(0,5\\).forEach\\(c=>console.log\\(c.name,'|',c.description\\)\\)\")"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "yt-ui"
+  ]
+}

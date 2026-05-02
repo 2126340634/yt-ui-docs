@@ -7,6 +7,9 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: 'Yt-UI',
   description: '一个简易的轻量级 Uni-app 组件库 for 指尖移通 5.0 微信小程序 ',
+  head: [
+    ['link', { rel: 'icon', href: '/yt-ui/docs/images/zjyt-logo-light.png' }],
+  ],
   theme: defaultTheme({
     logo: '/images/zjyt-logo-light.png',
     logoDark: '/images/zjyt-logo-dark.png',

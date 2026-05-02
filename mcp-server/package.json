@@ -1,0 +1,23 @@
+{
+  "name": "yt-ui-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for Yt-UI component library documentation",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && cp ../scripts/output/components.json dist/components.json",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --transport http --port 3000",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "express": "^5.2.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  }
+}

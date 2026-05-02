@@ -16,7 +16,7 @@
 ```bash
 cd mcp-server
 npm install
-npm run build
+pnpm run build
 ```
 
 build 会自动将 `components.json` 打包到 `dist/` 目录。
@@ -26,13 +26,13 @@ build 会自动将 `components.json` 打包到 `dist/` 目录。
 ### stdio 模式（给 Cursor / Claude Desktop / Claude Code 用）
 
 ```bash
-npm start
+pnpm start
 ```
 
 ### HTTP 模式
 
 ```bash
-npm run start:http
+pnpm run start:http
 ```
 
 启动后暴露：
@@ -107,7 +107,7 @@ MCP 服务部署地址：`https://zjyt.cqytxy.edu.cn/yt-ui/mcp`
 将 build 后的文件上传到服务器：
 
 ```
-/www/server/nginx/html/yt-ui/mcp-server/
+组件库存放位置/mcp-server/
 ├── package.json
 └── dist/
     ├── index.js
@@ -119,7 +119,7 @@ MCP 服务部署地址：`https://zjyt.cqytxy.edu.cn/yt-ui/mcp`
 ```bash
 docker run -d --name yt-ui-mcp \
   -p 3005:3005 \
-  -v /www/server/nginx/html/yt-ui/mcp-server:/app \
+  -v 组件库存放位置/mcp-server:/app \
   -w /app \
   node:22-alpine \
   sh -c "npm install --omit=dev && node dist/index.js --transport http --port 3005"
@@ -127,19 +127,14 @@ docker run -d --name yt-ui-mcp \
 
 ### 3) Nginx 反向代理
 
-在已有的 `zjyt.cqytxy.edu.cn` server 块中添加：
+在已有的 server 块中添加：
 
 ```nginx
-location ^~ /yt-ui/mcp {
+location /yt-ui/mcp {
     proxy_pass http://127.0.0.1:3005/mcp;
-    proxy_http_version 1.1;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header mcp-session-id $http_mcp_session_id;
-    proxy_buffering off;
 }
 
-location ^~ /yt-ui/health {
+location /yt-ui/health {
     proxy_pass http://127.0.0.1:3005/health;
 }
 ```
@@ -184,15 +179,15 @@ MCP 服务内置了文件热监听，更新 `components.json` 后**无需重启�
 
 ```bash
 # 1. 一键构建，所有产物输出到 deploy/
-npm run build
+pnpm run build
 
 # 2. 上传文档站（文件名可能变化，先清空再上传）
-ssh root@server "rm -rf /www/server/nginx/html/yt-ui/docs/*"
-scp -r deploy/docs/* root@server:/www/server/nginx/html/yt-ui/docs/
+ssh root@server "rm -rf 组件库存放位置/docs/*"
+scp -r deploy/docs/* root@server:组件库存放位置/docs/
 
 # 3. 上传 MCP Server（文件名不变，直接覆盖）
-scp -r deploy/mcp-server/* root@server:/www/server/nginx/html/yt-ui/mcp-server/
-# 如依赖有变动，服务器上执行：cd /www/server/nginx/html/yt-ui/mcp-server && npm install --omit=dev
+scp -r deploy/mcp-server/* root@server:组件库存放位置/mcp-server/
+# 如依赖有变动，服务器上执行：cd 组件库存放位置/mcp-server && npm install --omit=dev
 
 # 4. 验证
 curl https://zjyt.cqytxy.edu.cn/yt-ui/health
@@ -202,20 +197,20 @@ curl https://zjyt.cqytxy.edu.cn/yt-ui/health
 
 ```bash
 # 1. 构建文档站
-npm run docs:build
+pnpm run docs:build
 
 # 2. 上传文档站到服务器（先清空再上传）
-ssh root@server "rm -rf /www/server/nginx/html/yt-ui/docs/*"
-scp -r docs/.vuepress/dist/* root@server:/www/server/nginx/html/yt-ui/docs/
+ssh root@server "rm -rf 组件库存放位置/docs/*"
+scp -r docs/.vuepress/dist/* root@server:组件库存放位置/docs/
 
 # 3. 生成 LLM 文件 + 组件 .md 文件
 npm run sync
 
 # 4. 上传 LLM 文件和组件 .md 文件
-scp -r LLM-WIKI/* root@server:/www/server/nginx/html/yt-ui/docs/
+scp -r LLM-WIKI/* root@server:组件库存放位置/docs/
 
 # 5. 上传 components.json（MCP 自动热加载）
-scp scripts/output/components.json root@server:/www/server/nginx/html/yt-ui/mcp-server/dist/components.json
+scp scripts/output/components.json root@server:组件库存放位置/mcp-server/dist/components.json
 
 # 6. 验证
 curl https://zjyt.cqytxy.edu.cn/yt-ui/health
@@ -229,7 +224,7 @@ curl https://zjyt.cqytxy.edu.cn/yt-ui/health
 > }
 > ```
 
-> **注意**：每次更新时记得同步修改以下三处的版本号：
+> **注意**：每次MCP更新时记得同步修改以下三处的版本号：
 > - `mcp-server/package.json` — `version` 字段
 > - `mcp-server/src/index.ts` — `McpServer` 初始化处的 `version`
 > - `mcp-server/src/index.ts` — `/health` 响应中的 `version`

@@ -98,8 +98,8 @@ const totalFiles = countFiles(DEPLOY_DIR)
 console.log(`\nDone! ${totalFiles} files in deploy/`)
 console.log(`
 deploy/
-├── docs/                    → rm -rf + scp to /www/server/nginx/html/yt-ui/docs/
-└── mcp-server/              → scp to /www/server/nginx/html/yt-ui/mcp-server/
+├── docs/                    → rm -rf + scp to 组件库存放位置/docs/
+└── mcp-server/              → scp to 组件库存放位置/mcp-server/
     ├── package.json           (服务器上 npm install --omit=dev)
     ├── package-lock.json
     └── dist/

@@ -1,3 +1,25 @@
+/**
+ * @fileoverview 组件数据提取脚本 - 从 Markdown 文档中解析组件信息
+ *
+ * 该脚本扫描 docs/components/ 目录下的所有 .md 文件，提取每个组件的：
+ * - 组件名称和描述
+ * - 属性 (Props)
+ * - 事件 (Events)
+ * - 插槽 (Slots)
+ * - 方法 (Methods)
+ * - 代码示例
+ *
+ * 输出文件：scripts/output/components.json
+ * 该 JSON 文件被 MCP Server 和 generate-llms.js 使用
+ *
+ * @usage
+ * ```bash
+ * pnpm run extract
+ * # 或
+ * node scripts/extract-components.js
+ * ```
+ */
+
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'

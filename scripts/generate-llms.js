@@ -1,3 +1,22 @@
+/**
+ * @fileoverview LLM 文档生成脚本 - 为 AI 生成优化的组件参考文档
+ *
+ * 该脚本读取 components.json，生成两个 LLM 友好的文档：
+ * - llms.txt: 组件库概览和组件清单（精简版）
+ * - llms-full.txt: 完整的组件参考文档，包含所有 Props、Events、Slots 等
+ *
+ * 同时将组件 .md 文件复制到 LLM-WIKI/components/ 目录
+ *
+ * 生成的文档可供 AI 助手（如 Claude、ChatGPT）理解组件库的使用方法
+ *
+ * @usage
+ * ```bash
+ * pnpm run generate-llms
+ * # 或
+ * node scripts/generate-llms.js
+ * ```
+ */
+
 import fs from 'fs'
 import path from 'path'
 

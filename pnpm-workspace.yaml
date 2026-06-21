@@ -1,0 +1,9 @@
+packages:
+  - '.'
+  - 'mcp-server'
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild

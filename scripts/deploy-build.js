@@ -1,3 +1,24 @@
+/**
+ * @fileoverview 部署构建脚本 - 用于构建和组装生产环境部署文件
+ *
+ * 该脚本执行以下三个步骤：
+ * 1. 构建 VuePress 文档站点 (docs:build)
+ * 2. 同步组件数据 (sync) - 提取组件信息并生成 LLM 文档
+ * 3. 组装 deploy/ 目录 - 将构建产物、LLM-WIKI、MCP Server 整合到部署目录
+ *
+ * 输出结构：
+ * deploy/
+ * ├── docs/           → 文档站点静态文件 + LLM-WIKI 文档
+ * └── mcp-server/     → MCP Server 运行文件（排除 node_modules、src 等开发文件）
+ *
+ * @usage
+ * ```bash
+ * pnpm run build
+ * # 或
+ * node scripts/deploy-build.js
+ * ```
+ */
+
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'

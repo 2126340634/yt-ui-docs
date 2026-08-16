@@ -1,0 +1,90 @@
+# Yt-UI
+
+Yt-UI 是一个轻量级 Uni-app 组件库，专为指尖移通 5.0 微信小程序打造，基于 Vue 3 Composition API + TypeScript 开发。
+
+## 安装
+
+```bash
+npm install @rao2126340634/yt-ui
+# 或
+pnpm add @rao2126340634/yt-ui
+```
+
+## 使用约定
+
+- 所有组件以 `yt-` 为前缀
+- 支持 uni-app 的 easycom 模式，配置后无需手动 import
+- 基于 Vue 3 `<script setup>` + TypeScript
+- 支持微信小程序等小程序平台
+
+easycom 配置：
+```json
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^yt-(.*)": "@rao2126340634/yt-ui/src/components/yt-$1/yt-$1.vue"
+    }
+  }
+}
+```
+
+## 组件列表
+
+### 表单组件
+
+- [yt-input 输入框组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-input.md) - yt-input - 表单字段名
+- [yt-textarea 多行输入框组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-textarea.md) - yt-textarea - 支持表单字段注册。
+- [yt-switch 开关组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-switch.md) - yt-switch - 支持表单字段注册。
+- [yt-checkbox-group 多选框组组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-checkbox-group.md) - yt-checkbox-group - 组件支持表单字段注入，可通过上下文与表单组件集成：
+- [yt-radio-group 单选框组组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-radio-group.md) - yt-radio-group - 支持表单字段注册。
+- [yt-slider 滑块组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-slider.md) - yt-slider - 支持表单字段注册。
+- [yt-picker 选择器组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-picker.md) - yt-picker - 支持通过表单上下文注入注册字段。
+- [yt-calendar 日历组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-calendar.md) - yt-calendar - 月份数据
+- [yt-form 表单组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-form.md) - yt-form - 组件通过 `provide` 提供以下方法供表单字段组件使用：
+
+### 展示组件
+
+- [yt-avatar 头像组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-avatar.md) - yt-avatar - 头像图片地址
+- [yt-badge 徽标组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-badge.md) - yt-badge - 主题颜色
+- [yt-card 卡片组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-card.md) - yt-card - 主题颜色
+- [yt-tag 标签组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-tag.md) - yt-tag - 主题颜色
+- [yt-steps 步骤条组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-steps.md) - yt-steps - 主题颜色
+- [yt-result 结果页组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-result.md) - yt-result - 结果类型
+- [yt-empty 空状态组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-empty.md) - yt-empty - 空状态类型
+- [yt-virtual-list 虚拟列表组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-virtual-list.md) - yt-virtual-list - 本组件采用**分块虚拟化**策略优化长列表性能：
+
+### 交互组件
+
+- [yt-button 按钮组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-button.md) - yt-button - 主题颜色
+- [yt-fab 悬浮按钮组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-fab.md) - yt-fab - 主题颜色
+- [yt-icon 图标组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-icon.md) - yt-icon - 以下为全部可用图标名称,可直接传给 `<yt-icon :name="图标名称" />` 使用。
+- [yt-search 搜索组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-search.md) - yt-search - 主题颜色
+- [yt-segment 分段器组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-segment.md) - yt-segment - 主题颜色
+- [yt-swiper 轮播组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-swiper.md) - yt-swiper - 主题颜色
+- [yt-dots 指示点组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-dots.md) - yt-dots - 指示点总数
+
+### 反馈组件
+
+- [yt-loading 加载组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-loading.md) - yt-loading - 主题颜色
+- [yt-popup 弹窗组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-popup.md) - yt-popup - 弹窗宽度
+- [yt-overlay 遮罩层组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-overlay.md) - yt-overlay - 是否显示
+- [yt-notice-bar 通告栏组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-notice-bar.md) - yt-notice-bar - 主题颜色
+
+### 导航组件
+
+- [yt-tabbar 标签栏组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-tabbar.md) - yt-tabbar - 主题颜色
+- [yt-top-tabbar 顶部标签栏组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-top-tabbar.md) - yt-top-tabbar - 标签列表
+- [yt-collapse 折叠面板组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-collapse.md) - yt-collapse - 折叠面板标题列表
+- [yt-schedule 课程表组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-schedule.md) - yt-schedule - 主题颜色
+
+### 布局组件
+
+- [yt-divider 分割线组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-divider.md) - yt-divider - 分割线方向
+- [yt-line 链接/文本组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-line.md) - yt-line - 链接类型
+- [yt-movableView 可移动视图组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-movable-view.md) - yt-movableView - 层级
+
+## 更多
+
+- 完整文档: https://zjyt.cqytxy.edu.cn/yt-ui/docs
+- 完整 AI 参考: https://zjyt.cqytxy.edu.cn/yt-ui/docs/llms-full.txt

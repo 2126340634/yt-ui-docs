@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "yt-ui": {
+      "command": "node",
+      "args": ["mcp-server/dist/index.js"],
+      "cwd": "./"
+    }
+  }
+}

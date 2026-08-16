@@ -1,0 +1,17 @@
+{
+  "name": "yt-ui",
+  "description": "docs for yt-ui description",
+  "version": "1.2.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/deploy-build.js",
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:dev": "vuepress dev docs",
+    "docs:update-package": "pnpm dlx vp-update",
+    "extract": "node scripts/extract-components.js",
+    "generate-llms": "node scripts/generate-llms.js",
+    "sync": "npm run extract && npm run generate-llms"
+  }
+}

@@ -1,0 +1,2150 @@
+# Yt-UI 完整组件参考
+
+Yt-UI 是一个轻量级 Uni-app 组件库，专为指尖移通 5.0 微信小程序打造。
+所有组件以 `yt-` 为前缀，支持 easycom 自动引入，基于 Vue 3 + TypeScript。
+
+---
+
+# 表单组件
+
+## yt-input 输入框组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-input.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| width | number \| string | '100%' | 输入框宽度 |
+| height | number \| string | 30 | 输入框高度 |
+| padding | number \| string | '0 4px' | 内边距 |
+| modelValue | string | '' | 绑定值 (v-model) |
+| value | string | '' | 输入值 |
+| type | InputType | 'text' | 输入类型 |
+| password | boolean | false | 是否为密码类型 |
+| placeholder | string | '请输入内容' | 占位文本 |
+| disabled | boolean | false | 是否禁用 |
+| maxlength | number | -1 | 最大长度，-1 为不限制 |
+| focus | boolean | false | 是否自动聚焦 |
+| confirmType | KeyboardConfirmType | 'done' | 键盘确认按钮类型 |
+| confirmHold | boolean | false | 点击确认是否保持键盘不收起 |
+| adjustPosition | boolean | true | 键盘弹起时自动上推页面 |
+| autoBlur | boolean | true | 点击页面非输入框区域时自动收起键盘 |
+| holdKeyboard | boolean | false | 点击页面时保持键盘不收起 |
+| randomNumber | boolean | false | 是否随机数字 (type 为 number/digit/idcard 时有效) |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: string | v-model 更新 |
+| input | value: any | 输入时触发 |
+| focus | { value: any; height: number } | 获得焦点时触发 |
+| blur | value: any | 失去焦点时触发 |
+| confirm | value: any | 点击完成按钮时触发 |
+| keyboardHeightChange | { height: number; duration: number } | 键盘高度变化时触发 |
+
+### Methods
+
+| 方法 | 说明 |
+| --- | --- |
+| clear | 清空输入框 |
+
+### 示例
+
+```vue
+<yt-input />
+
+<yt-input placeholder="请输入用户名" />
+
+<yt-input theme="forest" placeholder="森林主题" />
+
+<yt-input theme="ocean" placeholder="海洋主题" />
+
+<yt-input theme="magic" placeholder="魔法主题" />
+```
+
+```vue
+<yt-input v-model="username" />
+
+<yt-input :modelValue="email" @update:modelValue="email = $event" />
+```
+
+```vue
+<yt-input type="text" placeholder="文本输入" />
+
+<yt-input type="number" placeholder="数字输入" />
+
+<yt-input type="idcard" placeholder="身份证号" />
+
+<yt-input type="digit" placeholder="数字键盘" />
+
+<yt-input :password="true" placeholder="密码输入" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-textarea 多行输入框组件
+
+描述：支持表单字段注册。
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-textarea.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| width | number \| string | '100%' | 输入框宽度 |
+| height | number \| string | 30 | 输入框高度 |
+| padding | number \| string | '0 4px' | 内边距 |
+| modelValue | string | '' | 绑定值 (v-model) |
+| value | string | '' | 输入值 |
+| type | InputType | 'text' | 输入类型 |
+| password | boolean | false | 是否为密码类型 |
+| placeholder | string | '请输入内容' | 占位文本 |
+| disabled | boolean | false | 是否禁用 |
+| maxlength | number | -1 | 最大长度 |
+| focus | boolean | false | 是否自动聚焦 |
+| confirmType | KeyboardConfirmType | 'done' | 键盘确认按钮类型 |
+| confirmHold | boolean | false | 点击确认是否保持键盘 |
+| adjustPosition | boolean | true | 键盘弹起时自动上推 |
+| autoBlur | boolean | true | 点击页面是否自动收起键盘 |
+| holdKeyboard | boolean | false | 点击页面时保持键盘不收起 |
+| randomNumber | boolean | false | 是否随机数字 |
+| autoFocus | boolean | false | 是否自动获得焦点 |
+| autoHeight | boolean | false | 是否自动增高 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: string | v-model 更新 |
+| input | { value: any; cursor: number } | 输入时触发 |
+| focus | { value: any; height: number } | 获得焦点时触发 |
+| blur | { value: any; cursor: number } | 失去焦点时触发 |
+| confirm | value: any | 点击完成按钮时触发 |
+| keyboardHeightChange | { height: number; duration: number } | 键盘高度变化时触发 |
+| lineChange | { height: number; heightRpx: number; lineCount: number } | 行高变化时触发 |
+
+### 示例
+
+```vue
+<yt-textarea theme="forest" />
+
+<yt-textarea theme="ocean" />
+
+<yt-textarea theme="magic" />
+
+<yt-textarea theme="blossom" />
+
+<yt-textarea theme="sunshine" />
+
+<yt-textarea theme="classic" />
+
+<yt-textarea theme="forest-sky" />
+
+<yt-textarea theme="ocean-sky" />
+
+<yt-textarea theme="magic-sky" />
+
+<yt-textarea theme="blossom-sky" />
+
+<yt-textarea theme="sunshine-sky" />
+```
+
+```vue
+<yt-textarea />
+```
+
+```vue
+<yt-textarea v-model="content" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-switch 开关组件
+
+描述：支持表单字段注册。
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-switch.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| modelValue | boolean \| null | null | 绑定值 (v-model) |
+| checked | boolean | false | 是否选中 |
+| disabled | boolean | false | 是否禁用 |
+| type | 'switch' \| 'checkbox' | 'switch' | 开关类型 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: boolean | v-model 更新 |
+| change | value: boolean | 开关变化 |
+
+### 示例
+
+```vue
+<yt-switch />
+```
+
+```vue
+<yt-switch v-model="isActive" />
+
+<yt-switch :modelValue="checked" @update:modelValue="checked = $event" />
+```
+
+```vue
+<yt-switch :checked="true" />
+
+<yt-switch v-model="defaultOn" :checked="true" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-checkbox-group 多选框组组件
+
+描述：组件支持表单字段注入，可通过上下文与表单组件集成：
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-checkbox-group.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| list | CheckboxItem[] | [] | 多选框选项列表 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | value: any[] | 选中值发生变化 |
+
+### 示例
+
+```vue
+interface CheckboxItem {
+  label?: string | number // 显示文本
+  value?: string | number // 选项值
+  checked?: boolean // 是否选中
+  disabled?: boolean // 是否禁用
+}
+```
+
+```vue
+// 表单上下文注入的方法
+registerField: (name: string, getValue: () => any, setValue: (value: any) => void) => void
+unregisterField: (name: string) => void
+```
+
+```vue
+<yt-checkbox-group
+  :list="[
+    { label: '选项1', value: 1 },
+    { label: '选项2', value: 2 },
+    { label: '选项3', value: 3 }
+  ]"
+  @change="handleChange"
+/>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-radio-group 单选框组组件
+
+描述：支持表单字段注册。
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-radio-group.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| list | RadioItem[] | [] | 单选框选项 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | value: any | 选中值变化 |
+
+### 示例
+
+```vue
+interface RadioItem {
+  label?: string | number // 显示文本
+  value?: string | number // 选项值
+  checked?: boolean // 是否选中
+  disabled?: boolean // 是否禁用
+}
+```
+
+```vue
+<yt-radio-group
+  :list="[
+    { label: '选项1', value: 1 },
+    { label: '选项2', value: 2 }
+  ]"
+  @change="handleChange"
+/>
+```
+
+```vue
+<yt-radio-group
+  :list="[
+    { label: '苹果', value: 'apple' },
+    { label: '香蕉', value: 'banana', checked: true },
+    { label: '橙子', value: 'orange' }
+  ]"
+/>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-slider 滑块组件
+
+描述：支持表单字段注册。
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-slider.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| modelValue | number \| null | null | 绑定值 (v-model) |
+| min | number | 0 | 最小值 |
+| max | number | 100 | 最大值 |
+| step | number | 1 | 步长 |
+| disabled | boolean | false | 是否禁用 |
+| value | number | 0 | 当前值 |
+| showValue | boolean | true | 是否显示当前值 |
+| blockSize | number | 20 | 滑块大小(12-28) |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: number | v-model 更新 |
+| change | value: number | 拖拽完成 |
+| changing | value: number | 拖拽中 |
+
+### 示例
+
+```vue
+<yt-slider />
+```
+
+```vue
+<yt-slider v-model="value" />
+
+<yt-slider :modelValue="progress" @update:modelValue="progress = $event" />
+```
+
+```vue
+<yt-slider :min="0" :max="100" />
+
+<yt-slider :min="10" :max="50" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-picker 选择器组件
+
+描述：支持通过表单上下文注入注册字段。
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-picker.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 表单字段名 |
+| type | 'single' \| 'multi' \| 'date' \| 'region' | 'single' | 选择器类型 |
+| items | any[] | [] | 选项数据 |
+| itemKey | string | '' | 对象数组的显示字段 |
+| start | string | '' | 日期选择起始值 |
+| end | string | '' | 日期选择结束值 |
+| disabled | boolean | false | 是否禁用 |
+| fields | 'year' \| 'month' \| 'day' | 'day' | 日期选择粒度 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | value: any | 选择值变化 |
+| cancel | - | 取消选择 |
+| columnChange | { column: number, value: any } | 多列选择列变化 |
+
+### 示例
+
+```vue
+<yt-picker :items="['选项1', '选项2', '选项3']" @change="handleChange" />
+
+<yt-picker
+  :items="[
+    { id: 1, name: '北京' },
+    { id: 2, name: '上海' }
+  ]"
+  item-key="name"
+/>
+```
+
+```vue
+<yt-picker
+  type="multi"
+  :items="[
+    ['周一', '周二', '周三'],
+    ['上午', '下午', '晚上']
+  ]"
+  @change="handleMultiChange"
+  @columnChange="handleColumnChange"
+/>
+```
+
+```vue
+<yt-picker type="date" start="2020-01-01" end="2025-12-31" fields="month" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-calendar 日历组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-calendar.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| monthData | MonthData[] | [] | 月份数据 |
+| loading | boolean | false | 是否加载中 |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| width | number \| string | '100%' | 日历宽度 |
+| height | number \| string | '100%' | 日历高度 |
+| gap | number \| string | 6 | 日期项间距 |
+| borderRadius | number \| string | 10 | 圆角大小 |
+| start | string | '' | 可选开始日期 (YYYY-MM) |
+| end | string | '' | 可选结束日期 (YYYY-MM) |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | { year: number; month: number } | 月份切换 |
+| dateClick | { year: number; month: number; date: number; index: number } | 日期点击 |
+
+### 示例
+
+```vue
+type MonthData = {
+  date: number // 日期 (1-31)
+  extra: string // 额外信息显示
+  isHoliday: boolean // 是否节假日
+}[]
+```
+
+```vue
+<yt-calendar />
+<yt-calendar theme="forest" />
+<yt-calendar theme="ocean" />
+<yt-calendar theme="magic" />
+<yt-calendar theme="blossom" />
+<yt-calendar theme="sunshine" />
+<yt-calendar theme="classic" />
+<yt-calendar theme="forest-sky" />
+<yt-calendar theme="ocean-sky" />
+<yt-calendar theme="magic-sky" />
+<yt-calendar theme="blossom-sky" />
+<yt-calendar theme="sunshine-sky" />
+```
+
+```vue
+<yt-calendar :width="300" :height="400" theme="forest" />
+<yt-calendar width="90vw" height="60vh" theme="ocean" />
+<yt-calendar :gap="8" :borderRadius="12" theme="magic" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-form 表单组件
+
+描述：组件通过 `provide` 提供以下方法供表单字段组件使用：
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-form.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| rules | Record<string, { rule: (value: any) => boolean; message: string }[]> | {} | 表单验证规则 |
+
+### Methods
+
+| 方法 | 说明 |
+| --- | --- |
+| submitForm | - |
+| resetForm | names?: string[] |
+| validate | callback?: (valid: boolean) => void |
+
+### 示例
+
+```vue
+registerField: (name: string, getValue: () => any, setValue: (value: any) => void) => void
+unregisterField: (name: string) => void
+```
+
+```vue
+interface Rule {
+  rule: (value: any) => boolean // 验证函数，返回 true 表示验证通过
+  message: string // 验证失败提示信息
+}
+
+type Rules = Record<string, Rule[]>
+```
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const formRef = ref()
+
+const formRules = {
+  username: [
+    {
+      rule: value => !!value,
+      message: '用户名不能为空'
+    }
+  ],
+  email: [
+    {
+      rule: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+      message: '请输入有效的邮箱地址'
+    }
+  ]
+}
+
+function submit() {
+  if (formRef.value.validate()) {
+    const formData = formRef.value.submitForm()
+    console.log('表单数据:', formData)
+  }
+}
+</script>
+
+<template>
+  <yt-form :rules="formRules" ref="formRef">
+    <view class="form-group">
+      <label>用户名</label>
+      <yt-input name="username" />
+    </view>
+    <view class="form-group">
+      <label>邮箱</label>
+      <yt-input name="email" />
+    </view>
+    <yt-button @click="submit">提交</yt-button>
+  </yt-form>
+</template>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+# 展示组件
+
+## yt-avatar 头像组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-avatar.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| url | string | '' | 头像图片地址 |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| circle | boolean | true | 是否为圆形头像 |
+| size | number | 60 | 头像尺寸（单位：px） |
+| fit | ImageMode | 'aspectFill' | 图片裁剪模式 |
+| showBadge | boolean | false | 是否显示徽标 |
+| enableBadgeTheme | boolean | true | 徽标是否使用头像主题 |
+| count | number | 0 | 徽标数字 |
+| overflowCount | number | 99 | 徽标封顶数字 |
+| dot | boolean | false | 是否显示小红点 |
+| offset | number[] | [] | 徽标偏移量 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: Event | 点击头像 |
+| load | { height: string; width: string } | 图片加载完成 |
+| error | errMsg: string | 图片加载失败 |
+
+### 示例
+
+```vue
+<yt-avatar url="/avatar.png" />
+<yt-avatar theme="forest" />
+<yt-avatar theme="ocean" />
+<yt-avatar theme="magic" />
+<yt-avatar theme="blossom" />
+<yt-avatar theme="sunshine" />
+<yt-avatar theme="classic" />
+<yt-avatar theme="forest-sky" />
+<yt-avatar theme="ocean-sky" />
+<yt-avatar theme="magic-sky" />
+<yt-avatar theme="blossom-sky" />
+<yt-avatar theme="sunshine-sky" />
+```
+
+```vue
+<yt-avatar :size="100" theme="forest" />
+<yt-avatar :size="80" :circle="true" theme="ocean" />
+<yt-avatar :size="120" :circle="false" theme="magic" />
+```
+
+```vue
+<yt-avatar theme="blossom" :showBadge="true" :count="5" />
+<yt-avatar theme="sunshine" :showBadge="true" :dot="true" />
+<yt-avatar theme="classic" :showBadge="true" :count="120" :overflowCount="99" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-badge 徽标组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-badge.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| count | number | 0 | 徽标数字 |
+| overflowCount | number | 99 | 徽标封顶数字 |
+| dot | boolean | false | 是否显示小红点 |
+| offset | number[] | [] | 徽标偏移量 [left, top] |
+| zIndex | number | 100 | 徽标层级 |
+
+### 示例
+
+```vue
+<yt-badge />
+<yt-badge theme="forest" />
+<yt-badge theme="ocean" />
+<yt-badge theme="magic" />
+<yt-badge theme="blossom" />
+<yt-badge theme="sunshine" />
+<yt-badge theme="classic" />
+<yt-badge theme="forest-sky" />
+<yt-badge theme="ocean-sky" />
+<yt-badge theme="magic-sky" />
+<yt-badge theme="blossom-sky" />
+<yt-badge theme="sunshine-sky" />
+```
+
+```vue
+<yt-badge :count="5" theme="forest" />
+<yt-badge :count="12" theme="ocean" />
+<yt-badge :count="99" theme="magic" />
+<yt-badge :count="100" theme="blossom" />
+<yt-badge :count="100" :overflowCount="99" theme="sunshine" />
+```
+
+```vue
+<yt-badge :dot="true" theme="forest" />
+<yt-badge :dot="true" theme="ocean" />
+<yt-badge :dot="true" theme="magic" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-card 卡片组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-card.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| width | number \| string | '100%' | 卡片宽度 |
+| height | number \| string | 200 | 卡片高度 |
+| borderRadius | number \| string | 10 | 圆角大小 |
+| borderColor | string | '#eee' | 边框颜色 |
+| shadow | string | '0 1px 4px rgba(0, 0, 0, 0.25)' | 阴影样式 |
+| padding | number \| string | 8 | 内边距 |
+| margin | number \| string | 8 | 外边距 |
+| spacing | number \| string | 8 | 头部与内容间距 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: Event | 点击卡片 |
+
+### 示例
+
+```vue
+<yt-card>卡片内容</yt-card>
+
+<yt-card theme="forest">森林绿卡片</yt-card>
+
+<yt-card theme="ocean">海洋蓝卡片</yt-card>
+
+<yt-card theme="magic">魔法紫卡片</yt-card>
+
+<yt-card theme="blossom">樱花粉卡片</yt-card>
+
+<yt-card theme="sunshine">阳光橙卡片</yt-card>
+
+<yt-card theme="classic">经典白卡片</yt-card>
+
+<yt-card theme="forest-sky">森林星空卡片</yt-card>
+
+<yt-card theme="ocean-sky">海洋星空卡片</yt-card>
+
+<yt-card theme="magic-sky">魔法星空卡片</yt-card>
+
+<yt-card theme="blossom-sky">樱花星空卡片</yt-card>
+
+<yt-card theme="sunshine-sky">阳光星空卡片</yt-card>
+```
+
+```vue
+<yt-card theme="forest">
+  <template #header>标题</template>
+  卡片内容
+</yt-card>
+
+<yt-card theme="ocean">
+  <template #header>海洋主题</template>
+  这里是一些关于海洋的内容描述...
+</yt-card>
+```
+
+```vue
+<yt-card :width="300" :height="150" theme="magic">固定尺寸卡片</yt-card>
+
+<yt-card width="80%" :height="200" theme="blossom">宽度百分比卡片</yt-card>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-tag 标签组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-tag.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| type | ColorType | 'primary' | 标签类型 |
+| size | SizeType | 'medium' | 标签尺寸 |
+| plain | boolean | false | 是否朴素样式 |
+| borderRadius | number \| string | 20 | 圆角大小 |
+| disabled | boolean | false | 是否禁用 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: Event | 点击标签 |
+
+### 示例
+
+```vue
+<yt-tag theme="forest">森林标签</yt-tag>
+
+<yt-tag theme="ocean">海洋标签</yt-tag>
+
+<yt-tag theme="magic">魔法标签</yt-tag>
+
+<yt-tag theme="blossom">樱花标签</yt-tag>
+
+<yt-tag theme="sunshine">阳光标签</yt-tag>
+
+<yt-tag theme="classic">经典标签</yt-tag>
+
+<yt-tag theme="forest-sky">森林星空标签</yt-tag>
+
+<yt-tag theme="ocean-sky">海洋星空标签</yt-tag>
+
+<yt-tag theme="magic-sky">魔法星空标签</yt-tag>
+
+<yt-tag theme="blossom-sky">樱花星空标签</yt-tag>
+
+<yt-tag theme="sunshine-sky">阳光星空标签</yt-tag>
+```
+
+```vue
+<yt-tag>标签</yt-tag>
+```
+
+```vue
+<yt-tag type="primary">主要</yt-tag>
+
+<yt-tag type="success">成功</yt-tag>
+
+<yt-tag type="warning">警告</yt-tag>
+
+<yt-tag type="danger">危险</yt-tag>
+
+<yt-tag type="info">信息</yt-tag>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-steps 步骤条组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-steps.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| activeIndex | number | 0 | 当前激活步骤索引 |
+| list | StepItem[] | [] | 步骤列表 |
+| gap | number | 8 | 步骤间距 |
+| direction | 'horizontal' \| 'vertical' | 'horizontal' | 排列方向 |
+
+### 示例
+
+```vue
+interface StepItem {
+  text?: string // 步骤文本
+  icon?: string // 图标名称或图片地址
+}
+```
+
+```vue
+<yt-steps theme="forest" :list="stepList" />
+
+<yt-steps theme="ocean" :list="stepList" />
+
+<yt-steps theme="magic" :list="stepList" />
+
+<yt-steps theme="blossom" :list="stepList" />
+
+<yt-steps theme="sunshine" :list="stepList" />
+
+<yt-steps theme="classic" :list="stepList" />
+
+<yt-steps theme="forest-sky" :list="stepList" />
+
+<yt-steps theme="ocean-sky" :list="stepList" />
+
+<yt-steps theme="magic-sky" :list="stepList" />
+
+<yt-steps theme="blossom-sky" :list="stepList" />
+
+<yt-steps theme="sunshine-sky" :list="stepList" />
+```
+
+```vue
+<yt-steps :list="[{ text: '第一步' }, { text: '第二步' }, { text: '第三步' }]" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-result 结果页组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-result.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| type | 'success' \| 'fail' \| 'info' | 'success' | 结果类型 |
+| size | number | 24 | 图标大小 |
+
+### 示例
+
+```vue
+<yt-result type="success">操作成功</yt-result>
+```
+
+```vue
+<yt-result type="fail">操作失败</yt-result>
+```
+
+```vue
+<yt-result type="info">提示信息</yt-result>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-empty 空状态组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-empty.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| type | 'fail' \| 'empty' \| 'done' \| 'champion' \| 'error' | 'empty' | 空状态类型 |
+| size | number | 24 | 图标大小 |
+
+### 示例
+
+```vue
+<yt-empty />
+
+<yt-empty type="empty" />
+```
+
+```vue
+<yt-empty type="fail" />
+
+<yt-empty type="done" />
+
+<yt-empty type="champion" />
+
+<yt-empty type="error" />
+```
+
+```vue
+<yt-empty :size="32" />
+
+<yt-empty type="fail" :size="40" />
+
+<yt-empty type="done" :size="48" />
+
+<yt-empty type="champion" :size="60" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-virtual-list 虚拟列表组件
+
+描述：本组件采用**分块虚拟化**策略优化长列表性能：
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-virtual-list.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| layout | 'single' \| 'double' \| 'waterfall' | 'single' | 列表布局模式：单列、双列、瀑布流 |
+| rowGap | number \| string | 8 | 行间距（px） |
+| columnGap | number \| string | 8 | 列间距（px） |
+| bufferDistance | number | 1200 | 缓冲区距离（px），可见分块上下额外渲染的距离 |
+| list | any[] | [] | 数据列表 |
+| itemKey | string | '' | 列表项唯一键，用于 Vue 的 `key` 标识 |
+| width | number \| string | '100%' | 列表宽度 |
+| height | number \| string | '100%' | 列表高度 |
+| chunkSize | number | 40 | 每个分块包含的列表项数量 |
+| estimatedSize | number | 1000 | 每个分块的预估高度（px），用于非可见分块的占位 |
+| showScrollbar | boolean | false | 是否显示滚动条 |
+| refresher | boolean | false | 是否开启下拉刷新 |
+| threshold | number | 50 | 下拉刷新阈值（px） |
+| triggered | boolean | false | 是否触发刷新状态 |
+| refresherBgColor | string | '#fff' | 下拉刷新背景色 |
+| refresherStyle | 'black' \| 'white' \| 'none' | 'black' | 下拉刷新样式 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| scroll | e: any | 滚动时触发 |
+| scrollToUpper | - | 滚动到顶部 |
+| scrollToLower | - | 滚动到底部 |
+| pull | - | 下拉刷新触发 |
+| refresh | - | 刷新状态 |
+| restore | - | 刷新结束 |
+| abort | - | 刷新中断 |
+
+### Slots
+
+| 插槽 | 作用域 | 说明 |
+| --- | --- | --- |
+| prefix | - | 列表顶部内容 |
+| list-item | { item: any, index: number } | 列表项内容 |
+| suffix | - | 列表底部内容 |
+
+### 示例
+
+```vue
+<yt-virtual-list :list="listData" itemKey="id" :height="500" layout="single">
+  <template v-slot:list-item="{ item, index }">
+    <view class="list-item">{{ item.name }}</view>
+  </template>
+</yt-virtual-list>
+```
+
+```vue
+<yt-virtual-list :list="listData" itemKey="id" :height="600" layout="double" :rowGap="12" :columnGap="16">
+  <template v-slot:list-item="{ item }">
+    <view class="card">{{ item.name }}</view>
+  </template>
+</yt-virtual-list>
+```
+
+```vue
+<yt-virtual-list :list="imageList" itemKey="id" :height="800" layout="waterfall" :bufferDistance="800" :chunkSize="10">
+  <template v-slot:list-item="{ item }">
+    <image :src="item.url" mode="widthFix" />
+    <text>{{ item.title }}</text>
+  </template>
+</yt-virtual-list>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+# 交互组件
+
+## yt-button 按钮组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-button.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| type | ColorType | 'primary' | 按钮类型 |
+| size | SizeType | 'medium' | 按钮尺寸 |
+| plain | boolean | false | 是否朴素样式 |
+| disabled | boolean | false | 是否禁用 |
+| loading | boolean | false | 是否加载中 |
+| circle | boolean | false | 是否圆形按钮 |
+| stretch | boolean | false | 是否拉伸宽度 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: Event | 点击按钮 |
+
+### 示例
+
+```vue
+<yt-button>按钮</yt-button>
+<yt-button theme="forest">森林绿</yt-button>
+<yt-button theme="ocean">海洋蓝</yt-button>
+<yt-button theme="magic">魔法紫</yt-button>
+<yt-button theme="blossom">樱花粉</yt-button>
+<yt-button theme="sunshine">阳光橙</yt-button>
+<yt-button theme="classic">经典白</yt-button>
+<yt-button theme="forest-sky">森林星空</yt-button>
+<yt-button theme="ocean-sky">海洋星空</yt-button>
+<yt-button theme="magic-sky">魔法星空</yt-button>
+<yt-button theme="blossom-sky">樱花星空</yt-button>
+<yt-button theme="sunshine-sky">阳光星空</yt-button>
+```
+
+```vue
+<yt-button type="primary" theme="forest">主要按钮</yt-button>
+<yt-button type="success" theme="forest">成功按钮</yt-button>
+<yt-button type="warning" theme="forest">警告按钮</yt-button>
+<yt-button type="danger" theme="forest">危险按钮</yt-button>
+<yt-button type="info" theme="forest">信息按钮</yt-button>
+```
+
+```vue
+<yt-button size="large" theme="ocean">大按钮</yt-button>
+<yt-button size="medium" theme="ocean">中按钮</yt-button>
+<yt-button size="small" theme="ocean">小按钮</yt-button>
+<yt-button size="mini" theme="ocean">迷你按钮</yt-button>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-fab 悬浮按钮组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-fab.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| size | SizeType | 'medium' | 按钮尺寸 |
+| horizontal | 'right' \| 'left' | 'right' | 水平位置 |
+| vertical | 'bottom' \| 'top' | 'bottom' | 垂直位置 |
+| zIndex | number | 500 | 层级 |
+| offset | number[] | [] | 偏移量 [x, y] |
+| popMenu | boolean | false | 是否弹出菜单 |
+| menuList | MenuItem[] | [] | 菜单项列表 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| fabClick | e: Event | 主按钮点击 |
+| menuItemClick | (e: Event, index: number) | 菜单项点击 |
+
+### 示例
+
+```vue
+interface MenuItem {
+  text?: string // 菜单文本
+  icon: string // 图标名称或图片地址
+}
+```
+
+```vue
+<yt-fab />
+
+<yt-fab theme="forest" />
+
+<yt-fab theme="ocean" />
+
+<yt-fab theme="magic" />
+
+<yt-fab theme="blossom" />
+
+<yt-fab theme="sunshine" />
+
+<yt-fab theme="classic" />
+
+<yt-fab theme="forest-sky" />
+
+<yt-fab theme="ocean-sky" />
+
+<yt-fab theme="magic-sky" />
+
+<yt-fab theme="blossom-sky" />
+
+<yt-fab theme="sunshine-sky" />
+```
+
+```vue
+<yt-fab size="large" theme="forest" />
+
+<yt-fab size="medium" theme="ocean" />
+
+<yt-fab size="small" theme="magic" />
+
+<yt-fab size="mini" theme="blossom" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-icon 图标组件
+
+描述：以下为全部可用图标名称,可直接传给 `<yt-icon :name="图标名称" />` 使用。
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-icon.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| name | string | '' | 图标名称 |
+| size | number | 24 | 图标大小 |
+| width | number \| string | 60 | 图标宽度 |
+| height | number \| string | 60 | 图标高度 |
+| fit | ImageMode | 'aspectFit' | 图片适配模式 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: any | 点击图标 |
+
+### 示例
+
+```vue
+<yt-icon name="Home" />
+
+<yt-icon name="Search" />
+
+<yt-icon name="Close" />
+```
+
+```vue
+<yt-icon name="Home" :size="16" />
+
+<yt-icon name="Home" :size="24" />
+
+<yt-icon name="Home" :size="32" />
+
+<yt-icon name="Home" :size="48" />
+```
+
+```vue
+<yt-icon name="DefaultAvatar" :width="80" :height="80" />
+
+<yt-icon name="QRcode" width="100%" height="auto" />
+
+<yt-icon name="ArrowLeft" :width="30" :height="30" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-search 搜索组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-search.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| modelValue | string | '' | 绑定值 (v-model) |
+| value | string | '' | 搜索值 |
+| placeholder | string | '请输入搜索内容' | 占位文本 |
+| disabled | boolean | false | 是否禁用 |
+| focus | boolean | false | 是否自动聚焦 |
+| autoBlur | boolean | true | 点击页面是否自动收起键盘 |
+| showButton | boolean | true | 是否显示搜索按钮 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: string | v-model 更新 |
+| input | value: any | 输入时触发 |
+| focus | { value: any; height: number } | 获得焦点时触发 |
+| blur | value: any | 失去焦点时触发 |
+| confirm | value: any | 点击键盘完成按钮 |
+| keyboardHeightChange | { height: number; duration: number } | 键盘高度变化 |
+| search | value: any | 点击搜索按钮 |
+
+### 示例
+
+```vue
+<yt-search theme="forest" />
+
+<yt-search theme="ocean" />
+
+<yt-search theme="magic" />
+
+<yt-search theme="blossom" />
+
+<yt-search theme="sunshine" />
+
+<yt-search theme="classic" />
+
+<yt-search theme="forest-sky" />
+
+<yt-search theme="ocean-sky" />
+
+<yt-search theme="magic-sky" />
+
+<yt-search theme="blossom-sky" />
+
+<yt-search theme="sunshine-sky" />
+```
+
+```vue
+<yt-search />
+```
+
+```vue
+<yt-search :showButton="false" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-segment 分段器组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-segment.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| size | SizeType | 'medium' | 尺寸大小 |
+| list | string[] | [] | 分段选项列表 |
+| modelValue | number | 0 | 当前选中索引 (v-model) |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: number | v-model 更新 |
+| change | index: number | 选项变化 |
+
+### 示例
+
+```vue
+<yt-segment theme="forest" :list="['选项1', '选项2']" />
+
+<yt-segment theme="ocean" :list="['选项1', '选项2']" />
+
+<yt-segment theme="magic" :list="['选项1', '选项2']" />
+
+<yt-segment theme="blossom" :list="['选项1', '选项2']" />
+
+<yt-segment theme="sunshine" :list="['选项1', '选项2']" />
+
+<yt-segment theme="classic" :list="['选项1', '选项2']" />
+
+<yt-segment theme="forest-sky" :list="['选项1', '选项2']" />
+
+<yt-segment theme="ocean-sky" :list="['选项1', '选项2']" />
+
+<yt-segment theme="magic-sky" :list="['选项1', '选项2']" />
+
+<yt-segment theme="blossom-sky" :list="['选项1', '选项2']" />
+
+<yt-segment theme="sunshine-sky" :list="['选项1', '选项2']" />
+```
+
+```vue
+<yt-segment :list="['选项1', '选项2']" />
+```
+
+```vue
+<yt-segment v-model="currentIndex" :list="['全部', '进行中', '已完成']" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-swiper 轮播组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-swiper.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| disabled | boolean | false | 是否禁用 |
+| showBgColor | boolean | false | 是否显示背景色 |
+| list | any[] | [] | 轮播数据列表 |
+| modelValue | number \| null | null | 当前索引 (v-model) |
+| width | number \| string | '100%' | 轮播宽度 |
+| height | number \| string | '100%' | 轮播高度 |
+| direction | 'horizontal' \| 'vertical' | 'horizontal' | 轮播方向 |
+| duration | number | 500 | 动画时长 |
+| showArrow | boolean | false | 是否显示箭头 |
+| arrowColor | 'light' \| 'dark' | 'light' | 箭头颜色 |
+| arrowSize | number | 16 | 箭头大小 |
+| showDots | boolean | false | 是否显示指示点 |
+| dotsSize | number | 32 | 指示点大小 |
+| maxDots | number | 7 | 最大指示点数 |
+| dotsSide | 'left' \| 'right' | 'right' | 垂直时指示点位置 |
+| dotsOffset | number \| string | '15%' | 指示点偏移 |
+| loop | boolean | true | 是否循环轮播 |
+| autoplay | boolean | false | 是否自动播放 |
+| interval | number | 2000 | 自动播放间隔 |
+| type | 'default' \| 'card' | 'default' | 轮播类型 |
+| activeCardScale | number | 0.8 | 卡片激活缩放 |
+| inactiveCardScale | number | 0.6 | 卡片非激活缩放 |
+| cardGap | number | 25 | 卡片间距 |
+| borderRadius | number \| string | 0 | 圆角大小 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | modelValue: number | v-model 更新 |
+| click | (e: Event, index: number) | 点击轮播项 |
+| change | index: number | 轮播切换 |
+
+### Slots
+
+| 插槽 | 作用域 | 说明 |
+| --- | --- | --- |
+| swiper-item | { item: any, index: number } | 轮播项内容 |
+
+### 示例
+
+```vue
+<yt-swiper theme="forest" :list="list" />
+
+<yt-swiper theme="ocean" :list="list" />
+
+<yt-swiper theme="magic" :list="list" />
+
+<yt-swiper theme="blossom" :list="list" />
+
+<yt-swiper theme="sunshine" :list="list" />
+
+<yt-swiper theme="classic" :list="list" />
+
+<yt-swiper theme="forest-sky" :list="list" />
+
+<yt-swiper theme="ocean-sky" :list="list" />
+
+<yt-swiper theme="magic-sky" :list="list" />
+
+<yt-swiper theme="blossom-sky" :list="list" />
+
+<yt-swiper theme="sunshine-sky" :list="list" />
+```
+
+```vue
+<yt-swiper :list="list">
+  <template v-slot:swiper-item="{ item }">
+    <image :src="item.image" mode="aspectFill" />
+  </template>
+</yt-swiper>
+```
+
+```vue
+<yt-swiper :list="list" direction="horizontal">
+  <!-- 内容 -->
+</yt-swiper>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-dots 指示点组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-dots.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| total | number | 1 | 指示点总数 |
+| activeIndex | number | 0 | 当前激活的指示点索引 |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| size | number | 24 | 指示点整体缩放比例 |
+| direction | 'horizontal' \| 'vertical' | 'horizontal' | 指示点排列方向 |
+
+### 示例
+
+```vue
+<yt-dots :total="5" />
+
+<yt-dots :total="3" :activeIndex="1" />
+```
+
+```vue
+<yt-dots :total="4" theme="forest" />
+
+<yt-dots :total="5" :activeIndex="2" theme="ocean" />
+
+<yt-dots :total="6" :activeIndex="3" theme="magic" />
+
+<yt-dots :total="4" :activeIndex="1" theme="blossom" />
+
+<yt-dots :total="5" :activeIndex="4" theme="sunshine" />
+
+<yt-dots :total="3" :activeIndex="0" theme="classic" />
+
+<yt-dots :total="6" :activeIndex="2" theme="forest-sky" />
+
+<yt-dots :total="5" :activeIndex="1" theme="ocean-sky" />
+
+<yt-dots :total="4" :activeIndex="3" theme="magic-sky" />
+
+<yt-dots :total="5" :activeIndex="0" theme="blossom-sky" />
+
+<yt-dots :total="6" :activeIndex="5" theme="sunshine-sky" />
+```
+
+```vue
+<yt-dots :total="3" direction="vertical" />
+
+<yt-dots :total="5" :activeIndex="2" direction="vertical" theme="forest" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+# 反馈组件
+
+## yt-loading 加载组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-loading.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor \| 'none' | 'classic' | 主题颜色 |
+| visible | boolean | true | 是否显示 |
+| textColor | string | '#999' | 文本颜色 |
+| zIndex | number | 1000 | 层级 |
+| overlay | boolean | false | 是否显示遮罩层 |
+| bgColor | string | '#ffffff80' | 遮罩层背景颜色 |
+| duration | number | 200 | 动画时长 |
+
+### 示例
+
+```vue
+<yt-loading />
+
+<yt-loading theme="forest" />
+
+<yt-loading theme="ocean" />
+
+<yt-loading theme="magic" />
+
+<yt-loading theme="blossom" />
+
+<yt-loading theme="sunshine" />
+
+<yt-loading theme="classic" />
+
+<yt-loading theme="forest-sky" />
+
+<yt-loading theme="ocean-sky" />
+
+<yt-loading theme="magic-sky" />
+
+<yt-loading theme="blossom-sky" />
+
+<yt-loading theme="sunshine-sky" />
+```
+
+```vue
+<yt-loading>加载中...</yt-loading>
+
+<yt-loading theme="forest">森林主题加载</yt-loading>
+
+<yt-loading theme="ocean">海洋主题加载</yt-loading>
+```
+
+```vue
+<yt-loading :visible="isLoading" />
+
+<yt-loading v-if="loading" theme="magic" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-popup 弹窗组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-popup.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| width | number \| string | '70vw' | 弹窗宽度 |
+| height | number \| string | '70vh' | 弹窗高度 |
+| maxWidth | number \| string | 'none' | 最大宽度 |
+| maxHeight | number \| string | 'none' | 最大高度 |
+| bgColor | string | '#ffffff' | 背景颜色 |
+| overlayColor | string | '#00000080' | 遮罩颜色 |
+| visible | boolean | false | 是否显示 |
+| zIndex | number | 1000 | 层级 |
+| placement | 'top' \| 'bottom' \| 'left' \| 'right' \| 'center' | 'bottom' | 弹出位置 |
+| borderRadius | number \| string | 10 | 圆角大小 |
+| duration | number | 200 | 动画时长 |
+| closeOnOverlayClick | boolean | true | 点击遮罩关闭 |
+| destroyOnClose | boolean | false | 关闭时销毁 |
+| headerType | 'close-only' \| 'cancel-confirm' \| 'none' | 'none' | 头部类型 |
+| headerProps | HeaderProps | () => ({...}) | 头部配置 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:visible | value: boolean | 控制显示 |
+| overlayClick | e: Event | 点击遮罩 |
+| open | - | 开始打开 |
+| opened | - | 打开完成 |
+| close | - | 开始关闭 |
+| closed | - | 关闭完成 |
+
+### 示例
+
+```vue
+interface HeaderProps {
+  title?: string           // 标题
+  cancelName?: string      // 取消按钮文本
+  confirmName?: string     // 确认按钮文本
+  cancelFn?: () => void    // 取消回调
+  confirmFn?: () => void   // 确认回调
+  closeSide?: 'left' \| 'right'  // 关闭按钮位置
+}
+```
+
+```vue
+<yt-popup :visible="show" placement="bottom">
+  <view>内容</view>
+</yt-popup>
+```
+
+```vue
+<yt-popup :visible="show" placement="top">
+  <view>顶部内容</view>
+</yt-popup>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-overlay 遮罩层组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-overlay.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| visible | boolean | false | 是否显示 |
+| duration | number | 200 | 动画时长 |
+| zIndex | number | 500 | 层级 |
+| bgColor | string | '#00000080' | 背景色 |
+| width | number \| string | '100%' | 宽度 |
+| height | number \| string | '100%' | 高度 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: Event | 点击遮罩 |
+
+### 示例
+
+```vue
+<yt-overlay :visible="show" @click="show = false" />
+```
+
+```vue
+<yt-button @click="show = true">显示遮罩</yt-button>
+<yt-overlay :visible="show" @click="show = false" />
+```
+
+```vue
+<yt-overlay :visible="show" bgColor="rgba(0,0,0,0.5)" />
+<yt-overlay :visible="show" bgColor="#ffffff80" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-notice-bar 通告栏组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-notice-bar.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor \| 'none' | 'none' | 主题颜色 |
+| width | number \| string | '100%' | 通告栏宽度 |
+| height | number \| string | 45 | 通告栏高度 |
+| textSize | number | 12 | 文字大小 |
+| animation | boolean | true | 是否开启动画 |
+| duration | number | 12000 | 动画时长(毫秒) |
+| prefixFlex | number | 0.3 | 前缀区域占比(0-1) |
+| suffixFlex | number | 0.3 | 后缀区域占比(0-1) |
+
+### 示例
+
+```vue
+<yt-notice-bar>欢迎来到我们的应用！</yt-notice-bar>
+
+<yt-notice-bar theme="forest">森林主题通告</yt-notice-bar>
+
+<yt-notice-bar theme="ocean">海洋主题通告</yt-notice-bar>
+
+<yt-notice-bar theme="magic">魔法主题通告</yt-notice-bar>
+
+<yt-notice-bar theme="blossom">樱花主题通告</yt-notice-bar>
+
+<yt-notice-bar theme="sunshine">阳光主题通告</yt-notice-bar>
+
+<yt-notice-bar theme="classic">经典主题通告</yt-notice-bar>
+
+<yt-notice-bar theme="forest-sky">森林星空主题</yt-notice-bar>
+
+<yt-notice-bar theme="ocean-sky">海洋星空主题</yt-notice-bar>
+
+<yt-notice-bar theme="magic-sky">魔法星空主题</yt-notice-bar>
+
+<yt-notice-bar theme="blossom-sky">樱花星空主题</yt-notice-bar>
+
+<yt-notice-bar theme="sunshine-sky">阳光星空主题</yt-notice-bar>
+```
+
+```vue
+<yt-notice-bar :width="300" :height="40">固定宽度通告</yt-notice-bar>
+
+<yt-notice-bar width="90%" :height="50">相对宽度通告</yt-notice-bar>
+
+<yt-notice-bar :width="400" :height="60" :textSize="16">大号文字通告</yt-notice-bar>
+```
+
+```vue
+<yt-notice-bar>
+  这是一条很长很长的通告消息，会自动从右向左滚动显示，直到完整显示所有内容...
+</yt-notice-bar>
+
+<yt-notice-bar>
+  【系统公告】尊敬的用户，系统将于今晚12点进行维护升级，预计持续2小时，给您带来不便敬请谅解！
+</yt-notice-bar>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+# 导航组件
+
+## yt-tabbar 标签栏组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-tabbar.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| modelValue | number | 0 | 当前激活索引 (v-model) |
+| centerIcon | string | '' | 中间按钮图标 |
+| centerBgColor | string | '#ffffff20' | 中间按钮背景色 |
+| centerBgColorLast | string | '#000' | 中间按钮最后一个背景色 |
+| showText | boolean | false | 是否显示文字 |
+| list | TabItem[] | [] | 标签列表 |
+| zIndex | number \| string | 500 | 层级 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | activeIndex: number | v-model 更新 |
+| change | (e: Event, activeIndex: number) | 标签切换 |
+| centerClick | e: Event | 中间按钮点击 |
+
+### 示例
+
+```vue
+interface TabItem {
+  text?: string // 标签文本
+  icon: string // 图标名称或图片地址
+  activeIcon?: string // 激活图标
+}
+```
+
+```vue
+<yt-tabbar theme="forest" :list="tabList" />
+
+<yt-tabbar theme="ocean" :list="tabList" />
+
+<yt-tabbar theme="magic" :list="tabList" />
+
+<yt-tabbar theme="blossom" :list="tabList" />
+
+<yt-tabbar theme="sunshine" :list="tabList" />
+
+<yt-tabbar theme="classic" :list="tabList" />
+
+<yt-tabbar theme="forest-sky" :list="tabList" />
+
+<yt-tabbar theme="ocean-sky" :list="tabList" />
+
+<yt-tabbar theme="magic-sky" :list="tabList" />
+
+<yt-tabbar theme="blossom-sky" :list="tabList" />
+
+<yt-tabbar theme="sunshine-sky" :list="tabList" />
+```
+
+```vue
+<yt-tabbar :list="[{ icon: 'Home' }, { icon: 'Course' }, { icon: 'Community' }, { icon: 'Me' }]" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-top-tabbar 顶部标签栏组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-top-tabbar.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| list | string[] | [] | 标签列表 |
+| modelValue | number | 0 | 当前激活索引 (v-model) |
+| zIndex | number | 500 | 层级 |
+| fixed | boolean | true | 是否固定定位 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| update:modelValue | activeIndex: number | v-model 更新 |
+| change | (e: Event, activeIndex: number) | 标签切换 |
+
+### 示例
+
+```vue
+<yt-top-tabbar :list="['推荐', '热门', '最新']" />
+```
+
+```vue
+<yt-top-tabbar v-model="currentTab" :list="tabList" />
+```
+
+```vue
+<yt-top-tabbar :fixed="false" :list="['分类1', '分类2']" />
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-collapse 折叠面板组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-collapse.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| titleList | string[] | [] | 折叠面板标题列表 |
+| iconSide | 'left' \| 'right' | 'right' | 图标位置 |
+| gap | number \| string | 8 | 折叠项间距 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | { index: number, activeIndexes: number[] } | 折叠面板展开/收起 |
+
+### Slots
+
+| 插槽 | 作用域 | 说明 |
+| --- | --- | --- |
+| collapse-item-{index} | { title: string, index: number } | 每个折叠面板的内容 |
+
+### 示例
+
+```vue
+<yt-collapse :titleList="['面板1', '面板2', '面板3']" @change="handleCollapseChange">
+  <template v-slot:collapse-item-0>
+    <view>面板1的内容</view>
+  </template>
+  <template v-slot:collapse-item-1>
+    <view>面板2的内容</view>
+  </template>
+  <template v-slot:collapse-item-2>
+    <view>面板3的内容</view>
+  </template>
+</yt-collapse>
+```
+
+```vue
+<yt-collapse :titleList="['左侧图标面板1', '左侧图标面板2']" icon-side="left" @change="handleCollapseChange">
+  <template v-slot:collapse-item-0>
+    <view>左侧图标面板1的内容</view>
+  </template>
+  <template v-slot:collapse-item-1>
+    <view>左侧图标面板2的内容</view>
+  </template>
+</yt-collapse>
+```
+
+```vue
+<yt-collapse :titleList="['面板A', '面板B', '面板C']" :gap="12" @change="handleCollapseChange">
+  <template v-slot:collapse-item-0>
+    <view>面板A的内容，间距12px</view>
+  </template>
+  <template v-slot:collapse-item-1>
+    <view>面板B的内容</view>
+  </template>
+  <template v-slot:collapse-item-2>
+    <view>面板C的内容</view>
+  </template>
+</yt-collapse>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-schedule 课程表组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-schedule.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| theme | ThemeColor | 'classic' | 主题颜色 |
+| width | number \| string | '100vw' | 课表宽度 |
+| height | number \| string | '100vh' | 课表高度 |
+| animation | boolean | true | 是否开启动画 |
+| duration | number | 300 | 动画时长（ms） |
+| rows | number | 6 | 行数（课节数） |
+| weeks | number | 20 | 周数 |
+| activeWeek | number | 0 | 当前周索引（从 0 开始） |
+| timeList | TimeList | [] | 时间列表 |
+| colorList | string[] | defaultColorList | 课程颜色列表 |
+| data | ScheduleData | {...} | 课表数据 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | weekIndex: number | 周数切换时触发，返回选中周的索引 |
+| courseClick | course: CourseData & { weekIndex: number; gridIndex: number } | 点击课程或日程时触发 |
+| agendaChange | agenda: Agenda[] | 日程变化时触发（增删改） |
+
+### 示例
+
+```vue
+interface ScheduleData {
+  term: number // 学期（1: 上学期, 2: 下学期）
+  termYear: string // 学年，如 '23-24'
+  start: string // 开学日期，格式 'YYYY-MM-DD'
+  course: Course[] // 课程列表
+  agenda: Agenda[] // 日程列表
+}
+```
+
+```vue
+interface Course {
+  type: 'course'
+  name: string // 课程名称
+  location?: string // 上课地点
+  teacher?: string // 授课教师
+  class?: string // 班级（多个班级用逗号分隔）
+  x: number // 星期几（1: 周一, 7: 周日）
+  y: number // 第几节课（从 1 开始）
+  z: number[] // 上课周数列表
+}
+```
+
+```vue
+interface Agenda {
+  type: 'agenda'
+  name: string // 日程名称
+  location?: string // 日程地点
+  x: number // 星期几（1: 周一, 7: 周日）
+  y: number // 第几节课（从 1 开始）
+  z: number[] // 日程周数列表
+}
+```
+
+> 更多示例请参考完整文档
+
+---
+
+# 布局组件
+
+## yt-divider 分割线组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-divider.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| direction | 'horizontal' \| 'vertical' | 'horizontal' | 分割线方向 |
+| align | AlignType | 'center' | 对齐方式 |
+| type | 'solid' \| 'dashed' \| 'dotted' | 'solid' | 线条类型 |
+| margin | number \| string | 32 | 外边距 |
+| lineColor | string | '#DCDFE6' | 线条颜色 |
+| textColor | string | '#3e3e3e60' | 文字颜色 |
+| textSize | number \| string | 16 | 文字大小 |
+
+### 示例
+
+```vue
+<yt-divider />
+
+<yt-divider direction="horizontal" />
+```
+
+```vue
+<view class="flex-row">
+  <span>左侧内容</span>
+  <yt-divider direction="vertical" />
+  <span>右侧内容</span>
+</view>
+```
+
+```vue
+<yt-divider>中间文字</yt-divider>
+
+<yt-divider>或者</yt-divider>
+
+<yt-divider>查看更多</yt-divider>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-line 链接/文本组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-line.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| type | 'primary' \| 'success' \| 'warning' \| 'error' \| 'info' | 'primary' | 链接类型 |
+| size | number \| string | 16 | 字体大小 |
+| disabled | boolean | false | 是否禁用 |
+| underline | boolean | true | 是否显示下划线 |
+| padStart | number \| string | 0 | 左侧内边距 |
+| padEnd | number \| string | 0 | 右侧内边距 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| click | e: any | 点击事件 |
+
+### 示例
+
+```vue
+<yt-line>普通链接</yt-line>
+
+<yt-line type="primary">主要链接</yt-line>
+
+<yt-line type="success">成功链接</yt-line>
+
+<yt-line type="warning">警告链接</yt-line>
+
+<yt-line type="error">错误链接</yt-line>
+
+<yt-line type="info">信息链接</yt-line>
+```
+
+```vue
+<yt-line :underline="false">无下划线链接</yt-line>
+
+<yt-line type="success" :underline="false">成功无下划线</yt-line>
+```
+
+```vue
+<yt-line :size="12">小号链接</yt-line>
+
+<yt-line :size="20">大号链接</yt-line>
+
+<yt-line :size="24">特大号链接</yt-line>
+
+<yt-line size="1.2em">相对大小</yt-line>
+```
+
+> 更多示例请参考完整文档
+
+---
+
+## yt-movableView 可移动视图组件
+
+文档：https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-movable-view.md
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| zIndex | number | 2000 | 层级 |
+| width | number \| string | '100%' | 可移动区域宽度 |
+| height | number \| string | 200 | 可移动区域高度 |
+| innerWidth | number \| string | '100%' | 可移动视图宽度 |
+| innerHeight | number \| string | 200 | 可移动视图高度 |
+| direction | 'all' \| 'vertical' \| 'horizontal' \| 'none' | 'all' | 移动方向限制 |
+| inertia | boolean | true | 是否有惯性 |
+| outOfBounds | boolean | true | 是否超出边界 |
+| x | number \| string | 0 | 初始 x 轴位置 |
+| y | number \| string | 0 | 初始 y 轴位置 |
+| damping | number | 20 | 阻尼系数 |
+| friction | number | 3 | 摩擦系数 |
+| disabled | boolean | false | 是否禁用 |
+| scale | boolean | true | 是否支持缩放 |
+| scaleArea | boolean | true | 是否启用缩放区域 |
+| scaleMin | number | 0.5 | 最小缩放比例 |
+| scaleMax | number | 10 | 最大缩放比例 |
+| scaleValue | number | 1 | 初始缩放比例 |
+| animation | boolean | true | 是否使用动画 |
+
+### Events
+
+| 事件 | 参数 | 说明 |
+| --- | --- | --- |
+| change | { x: number, y: number, source: 'touch' \| 'touch-out-of-bounds' \| 'out-of-bounds' \| 'friction' \| '' } | 拖动过程中触发 |
+| scaleChange | { x: number, y: number, scale: number } | 缩放过程中触发 |
+
+### 示例
+
+```vue
+<yt-movableView>
+  <view class="draggable-box">可拖拽区域</view>
+</yt-movableView>
+```
+
+```vue
+<yt-movableView direction="vertical">
+  <view class="vertical-drag">只能垂直拖拽</view>
+</yt-movableView>
+
+<yt-movableView direction="horizontal">
+  <view class="horizontal-drag">只能水平拖拽</view>
+</yt-movableView>
+
+<yt-movableView direction="none">
+  <view class="no-drag">不能拖拽</view>
+</yt-movableView>
+```
+
+```vue
+<yt-movableView :width="300" :height="300">
+  <view class="custom-area">300x300区域</view>
+</yt-movableView>
+
+<yt-movableView width="80vw" height="60vh">
+  <view class="responsive-area">响应式区域</view>
+</yt-movableView>
+```
+
+> 更多示例请参考完整文档
+
+---

@@ -1,7 +1,3 @@
-# Yt-UI
-
-轻量级 Uni-app 组件库，专为指尖移通 5.0 微信小程序打造，基于 Vue 3 Composition API + TypeScript。
-
 ## 项目结构
 
 ```

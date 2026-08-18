@@ -5,9 +5,8 @@
 | 属性名           | 类型                   | 默认值         | 说明                                              |
 | ---------------- | ---------------------- | -------------- | ------------------------------------------------- |
 | `name`           | `string`               | `''`           | 表单字段名                                        |
-| `theme`          | `ThemeColor \| 'none'` | `'none'`       | [主题颜色](/guide/theme-system.md)                |
 | `width`          | `number \| string`     | `'100%'`       | 输入框宽度                                        |
-| `height`         | `number \| string`     | `30`           | 输入框高度                                        |
+| `height`         | `number \| string`     | `34`           | 输入框高度                                        |
 | `padding`        | `number \| string`     | `'0 4px'`      | 内边距                                            |
 | `modelValue`     | `string`               | `''`           | 绑定值 (v-model)                                  |
 | `value`          | `string`               | `''`           | 输入值                                            |
@@ -41,6 +40,12 @@
 | ------- | ---------- |
 | `clear` | 清空输入框 |
 
+## 插槽
+
+| 插槽名    | 作用域参数 | 说明                            |
+| --------- | ---------- | ------------------------------- |
+| `prefix`  | -          | 输入框左侧的前置内容，如搜索图标 |
+
 ## 示例
 
 ### 基本输入框
@@ -49,12 +54,20 @@
 <yt-input />
 
 <yt-input placeholder="请输入用户名" />
+```
 
-<yt-input theme="forest" placeholder="森林主题" />
+> 输入框统一采用业界常用的浅灰填充样式，无需主题配置。
 
-<yt-input theme="ocean" placeholder="海洋主题" />
+### 前置内容
 
-<yt-input theme="magic" placeholder="魔法主题" />
+通过 `prefix` 插槽在输入框左侧放置图标等内容。
+
+```vue
+<yt-input placeholder="请输入搜索内容">
+  <template #prefix>
+    <yt-icon name="Search" :width="28" :height="28" />
+  </template>
+</yt-input>
 ```
 
 ### 绑定数据
@@ -212,28 +225,27 @@ function handlePhoneBlur(value) {
   <view class="form-container">
     <view class="form-group">
       <label>用户名</label>
-      <yt-input v-model="username" name="username" theme="forest" placeholder="请输入用户名" :maxlength="20" @blur="validateUsername" />
+      <yt-input v-model="username" name="username" placeholder="请输入用户名" :maxlength="20" @blur="validateUsername" />
     </view>
 
     <view class="form-group">
       <label>密码</label>
-      <yt-input v-model="password" name="password" :password="true" theme="ocean" placeholder="请输入密码" confirm-type="done" />
+      <yt-input v-model="password" name="password" :password="true" placeholder="请输入密码" confirm-type="done" />
     </view>
 
     <view class="form-group">
       <label>手机号</label>
-      <yt-input v-model="phone" name="phone" type="number" theme="magic" placeholder="请输入手机号" :maxlength="11" @blur="handlePhoneBlur" />
+      <yt-input v-model="phone" name="phone" type="number" placeholder="请输入手机号" :maxlength="11" @blur="handlePhoneBlur" />
     </view>
 
     <view class="form-group">
       <label>邮箱</label>
-      <yt-input v-model="email" name="email" type="text" theme="blossom" placeholder="请输入邮箱" confirm-type="next" />
+      <yt-input v-model="email" name="email" type="text" placeholder="请输入邮箱" confirm-type="next" />
     </view>
 
     <view class="search-box">
       <yt-input
         v-model="searchText"
-        theme="sunshine"
         placeholder="搜索内容"
         confirm-type="search"
         :adjustPosition="true"

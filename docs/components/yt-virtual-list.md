@@ -18,7 +18,7 @@
 | `refresher`        | `boolean`                             | `false`    | 是否开启下拉刷新                               |
 | `threshold`        | `number`                              | `50`       | 下拉刷新阈值（px）                             |
 | `triggered`        | `boolean`                             | `false`    | 是否触发刷新状态                               |
-| `refresherBgColor` | `string`                              | `'#fff'`   | 下拉刷新背景色                                 |
+| `refresherBgColor` | `string`                              | `'#fff'`   | 控制刷新状态                                   |
 | `refresherStyle`   | `'black' \| 'white' \| 'none'`        | `'black'`  | 下拉刷新样式                                   |
 
 ## 插槽

@@ -33,7 +33,7 @@ easycom 配置：
 
 ### 表单组件
 
-- [yt-input 输入框组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-input.md) - yt-input - 表单字段名
+- [yt-input 输入框组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-input.md) - yt-input - > 输入框统一采用业界常用的浅灰填充样式，无需主题配置。
 - [yt-textarea 多行输入框组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-textarea.md) - yt-textarea - 支持表单字段注册。
 - [yt-switch 开关组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-switch.md) - yt-switch - 支持表单字段注册。
 - [yt-checkbox-group 多选框组组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-checkbox-group.md) - yt-checkbox-group - 组件支持表单字段注入，可通过上下文与表单组件集成：
@@ -59,7 +59,7 @@ easycom 配置：
 - [yt-button 按钮组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-button.md) - yt-button - 主题颜色
 - [yt-fab 悬浮按钮组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-fab.md) - yt-fab - 主题颜色
 - [yt-icon 图标组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-icon.md) - yt-icon - 以下为全部可用图标名称,可直接传给 `<yt-icon :name="图标名称" />` 使用。
-- [yt-search 搜索组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-search.md) - yt-search - 主题颜色
+- [yt-search 搜索组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-search.md) - yt-search - > 搜索框统一采用业界常用的浅灰填充样式，无需主题配置。
 - [yt-segment 分段器组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-segment.md) - yt-segment - 主题颜色
 - [yt-swiper 轮播组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-swiper.md) - yt-swiper - 主题颜色
 - [yt-dots 指示点组件](https://zjyt.cqytxy.edu.cn/yt-ui/docs/components/yt-dots.md) - yt-dots - 指示点总数

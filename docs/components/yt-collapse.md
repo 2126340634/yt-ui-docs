@@ -2,11 +2,13 @@
 
 ## 属性
 
-| 属性名      | 类型                | 默认值    | 说明             |
-| ----------- | ------------------- | --------- | ---------------- |
-| `titleList` | `string[]`          | `[]`      | 折叠面板标题列表 |
-| `iconSide`  | `'left' \| 'right'` | `'right'` | 图标位置         |
-| `gap`       | `number \| string`  | `8`       | 折叠项间距       |
+| 属性名          | 类型                | 默认值    | 说明                               |
+| --------------- | ------------------- | --------- | ---------------------------------- |
+| `titleList`     | `string[]`          | `[]`      | 折叠面板标题列表                   |
+| `iconSide`      | `'left' \| 'right'` | `'right'` | 图标位置                           |
+| `gap`           | `number \| string`  | `8`       | 折叠项间距                         |
+| `defaultActive` | `number[]`          | `[]`      | 默认展开的面板索引(仅初始化时生效) |
+| `borderColor`   | `string`            | `#e5e7eb` | 折叠面板上下边框颜色               |
 
 ## 插槽
 
@@ -63,6 +65,19 @@
   </template>
   <template v-slot:collapse-item-2>
     <view>面板C的内容</view>
+  </template>
+</yt-collapse>
+```
+
+### 默认展开
+
+```vue
+<yt-collapse :titleList="['面板1', '面板2']" :defaultActive="[0]">
+  <template v-slot:collapse-item-0>
+    <view>面板1默认展开</view>
+  </template>
+  <template v-slot:collapse-item-1>
+    <view>面板2默认收起</view>
   </template>
 </yt-collapse>
 ```

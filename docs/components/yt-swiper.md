@@ -12,7 +12,7 @@
 | `width`             | `number \| string`           | `'100%'`       | 轮播宽度                           |
 | `height`            | `number \| string`           | `'100%'`       | 轮播高度                           |
 | `direction`         | `'horizontal' \| 'vertical'` | `'horizontal'` | 轮播方向                           |
-| `duration`          | `number`                     | `500`          | 动画时长                           |
+| `duration`          | `number`                     | `300`          | 动画时长                           |
 | `showArrow`         | `boolean`                    | `false`        | 是否显示箭头                       |
 | `arrowColor`        | `'light' \| 'dark'`          | `'light'`      | 箭头颜色                           |
 | `arrowSize`         | `number`                     | `16`           | 箭头大小                           |

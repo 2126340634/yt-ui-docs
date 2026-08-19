@@ -2,13 +2,14 @@
 
 ## 属性
 
-| 属性名   | 类型               | 默认值        | 说明         |
-| -------- | ------------------ | ------------- | ------------ |
-| `name`   | `string`           | `''`          | 图标名称     |
-| `size`   | `number`           | `24`          | 图标大小     |
-| `width`  | `number \| string` | `60`          | 图标宽度     |
-| `height` | `number \| string` | `60`          | 图标高度     |
-| `fit`    | `ImageMode`        | `'aspectFit'` | 图片适配模式 |
+| 属性名     | 类型               | 默认值        | 说明           |
+| ---------- | ------------------ | ------------- | -------------- |
+| `name`     | `string`           | `''`          | 图标名称       |
+| `size`     | `number`           | `24`          | 图标大小       |
+| `width`    | `number \| string` | `60`          | 图标宽度       |
+| `height`   | `number \| string` | `60`          | 图标高度       |
+| `fit`      | `ImageMode`        | `'aspectFit'` | 图片适配模式   |
+| `lazyLoad` | `boolean`          | `false`       | 是否开启懒加载 |
 
 ## 事件
 

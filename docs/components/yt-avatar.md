@@ -15,6 +15,7 @@
 | `overflowCount`    | `number`               | `99`           | 徽标封顶数字                       |
 | `dot`              | `boolean`              | `false`        | 是否显示小红点                     |
 | `offset`           | `number[]`             | `[]`           | 徽标偏移量                         |
+| `lazyLoad`         | `boolean`              | `false`        | 是否开启懒加载                     |
 
 ## 事件
 
